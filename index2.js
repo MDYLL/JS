@@ -1,7 +1,8 @@
 let answer;
 let question;
 let jokes=[];
-localStorage.setItem('Favorite',JSON.stringify(jokes));
+//localStorage.setItem('Favorite',JSON.stringify(jokes));
+localStorage.clear();
 
 function loadJoke() {
     let xhr = new XMLHttpRequest();
@@ -26,20 +27,21 @@ function loadJoke() {
 }
 
 function addToFavorite() {
-    jokes.push({
-        q:question,
-        a:answer
-    });
-    localStorage.setItem('Favorite',JSON.stringify(jokes));
+    // jokes.push({
+    //     q:question,
+    //     a:answer
+    // });
+    localStorage.setItem(question,answer);
 }
 
 function showFavorite() {
     let favorite = document.getElementById("favorite");
     favorite.innerHTML = null;
-    let obj = JSON.parse(localStorage.getItem("Favorite"));
-    obj.forEach((item,i)=>{
+    // let obj = JSON.parse(localStorage.getItem("Favorite"));
+    let keys=Object.keys(localStorage);
+    keys.forEach((key)=>{
         let el1 = document.createElement('li');
-        el1.innerText = item.q+" "+item.a;
+        el1.innerText = key+" "+localStorage.getItem(key);
         favorite.appendChild(el1);
     })
 }
