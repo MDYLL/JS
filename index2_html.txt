@@ -11,11 +11,6 @@
   <button onclick="loadJoke()">Получить Анекдот</button>
   <p id="q"></p>
   <p id="a"></p>
-  <button onclick="addToFavorite()">Add to Favorite</button>
-  <button onclick="showFavorite()">Show Favorite</button>
-  <form id="favorite">
-
-  </form>
 
 <script src="index2.js"></script>
 
